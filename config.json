@@ -1,8 +1,0 @@
-{
-    "token": "NDMzMzM5MTI4OTQwMDY4ODk0.XUlrlw.t0cxjKVg49RiL9mz-cJ8B_cTHD0",
-    "prefix": "!",
-    "paths": {
-        "commands": "./src/commands",
-        "events": "./src/events"
-    }
-}
