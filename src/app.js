@@ -1,4 +1,4 @@
-const Client = require('./src/base/Deahria');
+const Client = require('./base/Deahria');
 
 /*
     Initialize Deahria.
