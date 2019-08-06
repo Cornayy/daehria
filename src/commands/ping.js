@@ -11,7 +11,7 @@ class Ping extends Command {
     }
 
     run(message) {
-        super.respond(`Pong! Took ${message.createdAt - Date.now()}ms.`);
+        super.respond(`Pong! Took ${Date.now() - message.createdAt}ms.`);
     }
 }
 

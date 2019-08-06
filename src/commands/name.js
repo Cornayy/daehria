@@ -14,9 +14,9 @@ class Name extends Command {
         super.respond(
             `Why my name is like this? I'll spell it out for you backwards: ${this.client.user.username
                 .split('')
-                .toUpperCase()
                 .reverse()
-                .join(' ')}`
+                .join(' ')
+                .toUpperCase()}`
         );
     }
 }
