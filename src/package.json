@@ -1,0 +1,24 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "Discord Bot",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cornayy/Deahria.git"
+  },
+  "author": "Cornayy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Cornayy/Deahria/issues"
+  },
+  "homepage": "https://github.com/Cornayy/Deahria#readme",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.0.0"
+  }
+}
