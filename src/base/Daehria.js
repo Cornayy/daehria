@@ -2,32 +2,34 @@ const { Client, Collection } = require('discord.js');
 const { readdir } = require('fs');
 
 /**
- * Represents a Discord client
+ * Represents a Discord client.
  * @extends Discord.Client
  */
 class Deahria extends Client {
     constructor(options) {
         super(options.clientOptions || {});
         /**
-         * The bot's configuration - empty if no file was specified
+         * The bot's configuration - empty if no file was specified.
          * @type {Object}
          */
         this.config = options.config ? require(`../../${options.config}`) : {};
         /**
-         * A collection of all of the bot's commands
+         * A collection of all of the bot's commands.
          * @type {Discord.Collection}
          */
         this.commands = new Collection();
         /**
-         * A collection of all of the bot's commands aliases
+         * A collection of all of the bot's commands aliases.
          * @type {Discord.Collection}
          */
         this.aliases = new Collection();
+
+        console.log('Daehria is running.');
     }
 
     /**
-     * Loads all commands in the directory
-     * @param {String} path The path where the commands are located
+     * Loads all commands in the directory.
+     * @param {String} path The path where the commands are located.
      */
     initCommands(path) {
         readdir(path, (err, files) => {
@@ -46,8 +48,8 @@ class Deahria extends Client {
     }
 
     /**
-     * Loads all events in the directory
-     * @param {String} path The path where the events are located
+     * Loads all events in the directory.
+     * @param {String} path The path where the events are located.
      */
     initEvents(path) {
         readdir(path, (err, files) => {
@@ -64,8 +66,8 @@ class Deahria extends Client {
     }
 
     /**
-     * Logs the client in
-     * @param {String} token The token used to log the client in
+     * Logs the client in.
+     * @param {String} token The token used to log the client in.
      */
     login(token) {
         super.login(token);

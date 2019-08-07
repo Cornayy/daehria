@@ -1,16 +1,16 @@
 class Command {
     /**
-     * @param {Daehria} client The client used in the command
-     * @param {Object} options The command's configuration
+     * @param {Daehria} client The client used in the command.
+     * @param {Object} options The command's configuration.
      */
     constructor(client, options) {
         /**
-         * The client used in the command
+         * The client used in the command.
          * @type {Daehria}
          */
         this.client = client;
         /**
-         * The command's information properties
+         * The command's information properties.
          * @type {Object}
          */
         this.help = {
@@ -20,7 +20,7 @@ class Command {
             category: options.category || 'Information'
         };
         /**
-         * The command's configuration
+         * The command's configuration.
          * @type {Object}
          */
         this.conf = {

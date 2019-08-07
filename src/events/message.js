@@ -1,6 +1,6 @@
 class Message {
     /**
-     * @param {Daehria} client The client used in the command
+     * @param {Daehria} client The client used in the command.
      */
     constructor(client) {
         this.client = client;
