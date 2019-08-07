@@ -36,7 +36,6 @@ class UserInfo extends Command {
             })
             .catch(error => {
                 super.respond(`Something went wrong, please try again.`);
-                console.log(error);
             });
     }
 }

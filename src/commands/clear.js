@@ -14,8 +14,16 @@ class Ping extends Command {
     }
 
     run(message) {
-        //TODO: Implement the command.
-        super.respond(``);
+        const channel = message.channel;
+
+        channel
+            .bulkDelete(5)
+            .then(messages => {
+                super.respond(`Cleared ${messages.size} message(s).`);
+            })
+            .catch(error => {
+                super.respond('Something went wrong while trying to clear the messages.');
+            });
     }
 }
 

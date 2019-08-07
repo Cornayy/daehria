@@ -6,4 +6,5 @@ const Daehria = require('./base/Daehria');
 
 const client = new Daehria({ config: './config' });
 client.login(client.config.token);
-client.initCommands(client.config.paths.commands).initEvents(client.config.paths.events);
+client.initCommands(client.config.paths.commands);
+client.initEvents(client.config.paths.events);
