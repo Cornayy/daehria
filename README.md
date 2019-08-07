@@ -1,2 +1,2 @@
 # Deahria
-Discord Bot written in Javascript.
+Discord Bot written for fun in Javascript using discord.js.
