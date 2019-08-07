@@ -1,6 +1,9 @@
 const Command = require('../base/Command');
 
 class Ping extends Command {
+    /**
+     * @param {Daehria} client The client used in the command
+     */
     constructor(client) {
         super(client, {
             name: 'ping',

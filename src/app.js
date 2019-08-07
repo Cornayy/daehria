@@ -1,10 +1,9 @@
-const Client = require('./base/Deahria');
+const Daehria = require('./base/Daehria');
 
 /*
-    Initialize Deahria.
+    Initialize Daehria.
 */
 
-const client = new Client({ config: './config' });
+const client = new Daehria({ config: './config' });
 client.login(client.config.token);
-client.initCommands(client.config.paths.commands);
-client.initEvents(client.config.paths.events);
+client.initCommands(client.config.paths.commands).initEvents(client.config.paths.events);

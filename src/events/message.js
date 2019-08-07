@@ -1,8 +1,15 @@
 class Message {
+    /**
+     * @param {Daehria} client The client used in the command
+     */
     constructor(client) {
         this.client = client;
     }
 
+    /**
+     * Handles the message, gets and runs the right command with arguments.
+     * @param {Object} message
+     */
     run(message) {
         if (message.author.bot || !message.content.startsWith(this.client.config.prefix)) return;
 
