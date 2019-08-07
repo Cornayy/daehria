@@ -1,6 +1,6 @@
 const Command = require('../base/Command');
 
-class Ping extends Command {
+class Clear extends Command {
     /**
      * @param {Daehria} client The client used in the command.
      */
@@ -27,4 +27,4 @@ class Ping extends Command {
     }
 }
 
-module.exports = Ping;
+module.exports = Clear;
