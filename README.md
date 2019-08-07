@@ -4,8 +4,8 @@
 Discord Bot written for fun in Javascript using discord.js.
 
 ## Usage
-..*Create a config.json file in the root of the project.
-..*Fill it with the following structure.
+.*Create a config.json file in the root of the project.
+.*Fill it with the following structure.
 
 ## Config
 ```json
