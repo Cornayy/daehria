@@ -7,15 +7,14 @@ class Source extends Command {
     constructor(client) {
         super(client, {
             name: 'source',
-            description: 'Links the source code of the bot.',
+            description: 'Sends a link to the source code of the bot.',
             category: 'Information',
             aliases: ['source']
         });
     }
 
     run(message) {
-        //TODO: Implement command.
-        super.respond(``);
+        super.respond(`Consider contributing to the bot: \n ${this.client.config.github}`);
     }
 }
 

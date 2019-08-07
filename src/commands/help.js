@@ -18,7 +18,9 @@ class Help extends Command {
         const commands = this.client.commands;
         const help = new Discord.RichEmbed()
             .setTitle('Help')
-            .setDescription(this.help.description)
+            .setDescription(
+                `${this.help.description} \n The prefix used for commands is: '${this.client.config.prefix}'.`
+            )
             .setColor(0x00b405)
             .addBlankField()
             .setFooter(`${this.client.user.username} at ${new Date().toDateString()}`, this.client.user.avatarURL);

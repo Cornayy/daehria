@@ -7,7 +7,7 @@ class Clear extends Command {
     constructor(client) {
         super(client, {
             name: 'clear',
-            description: 'Clears the last 5 messages.',
+            description: 'Clears the last five messages.',
             category: 'Utility',
             aliases: ['clear']
         });
