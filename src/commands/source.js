@@ -13,6 +13,10 @@ class Source extends Command {
         });
     }
 
+    /**
+     * Returns a link to the source code.
+     * @param {Object} message The message object that triggered the command.
+     */
     run(message) {
         super.respond(`Consider contributing to the bot: \n ${this.client.config.github}`);
     }

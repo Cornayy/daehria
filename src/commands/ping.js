@@ -13,6 +13,10 @@ class Ping extends Command {
         });
     }
 
+    /**
+     * Pings the bot.
+     * @param {Object} message The message object that triggered the command.
+     */
     run(message) {
         super.respond(`Pong! Took ${Date.now() - message.createdAt}ms.`);
     }

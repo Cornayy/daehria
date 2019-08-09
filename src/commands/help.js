@@ -14,6 +14,10 @@ class Help extends Command {
         });
     }
 
+    /**
+     * Returns information about all the available commands and prefix.
+     * @param {Object} message The message object that triggered the command.
+     */
     run(message) {
         const commands = this.client.commands;
         const help = new Discord.RichEmbed()

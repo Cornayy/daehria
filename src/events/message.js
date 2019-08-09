@@ -8,10 +8,6 @@ class Message {
 
     /**
      * Handles the message, gets and runs the right command with arguments.
-     * Stops under the following conditions:
-     * Author is bot.
-     * Command doesn't have the right prefix.
-     * Channel is not included in the config.
      * @param {Object} message
      */
     run(message) {

@@ -14,6 +14,10 @@ class UserInfo extends Command {
         });
     }
 
+    /**
+     * Returns information about the user.
+     * @param {Object} message The message object that triggered the command.
+     */
     run(message) {
         const guild = message.guild;
         guild

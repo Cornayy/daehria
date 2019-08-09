@@ -13,6 +13,10 @@ class Name extends Command {
         });
     }
 
+    /**
+     * Explains the name of the bot.
+     * @param {Object} message The message object that triggered the command.
+     */
     run(message) {
         const client = this.client.user;
 

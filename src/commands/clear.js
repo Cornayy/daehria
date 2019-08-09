@@ -13,6 +13,10 @@ class Clear extends Command {
         });
     }
 
+    /**
+     * Clears the last 100 messages in the channel.
+     * @param {Object} message The message object that triggered the command.
+     */
     async run(message) {
         const channel = message.channel;
         let messages = await channel.fetchMessages({ limit: 100 });

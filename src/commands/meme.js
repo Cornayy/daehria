@@ -15,6 +15,10 @@ class Meme extends Command {
         });
     }
 
+    /**
+     * Returns a random meme from r/dankmemes.
+     * @param {Object} message The message object that triggered the command.
+     */
     run(message) {
         const random = Math.floor(Math.random() * 100);
 
