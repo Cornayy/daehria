@@ -33,4 +33,5 @@ There is a reference to all available "Game Activity Types" at the links section
 ## Links
 
 [Discord.js](https://discord.js.org)
+
 [Activity Types](https://discord.js.org/#/docs/main/stable/typedef/ActivityType)
