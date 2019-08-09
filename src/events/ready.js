@@ -11,7 +11,7 @@ class Ready {
      * @param {Object} message
      */
     run(message) {
-        this.client.user.setPresence(this.client.config.presence.game);
+        this.client.user.setPresence(this.client.config.presence);
     }
 }
 
