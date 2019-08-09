@@ -29,7 +29,9 @@ Discord Bot written for fun in Javascript using discord.js.
 }
 ```
 There is a reference to all available "Game Activity Types" at the links section.
+
 **NOTE:** Be careful not to leave your bot token online, so always exclude the config.json file from github.
+
 ## Links
 
 [Discord.js](https://discord.js.org)
