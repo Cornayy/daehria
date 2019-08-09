@@ -7,17 +7,17 @@ class Clear extends Command {
     constructor(client) {
         super(client, {
             name: 'clear',
-            description: 'Clears the last five messages.',
+            description: 'Clears the last 100 messages.',
             category: 'Utility',
             aliases: ['clear']
         });
     }
 
-    run(message) {
+    async run(message) {
         const channel = message.channel;
-
-        channel
-            .bulkDelete(5)
+        let messages = await channel.fetchMessages({ limit: 100 });
+        message.channel
+            .bulkDelete(messages)
             .then(messages => {
                 super.respond(`Cleared ${messages.size} message(s).`);
             })
