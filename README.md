@@ -11,8 +11,9 @@ Discord Bot written for fun in Javascript using discord.js.
 ## Config
 ```json
 {
-    "token": "token",
+    "token": "bot-token",
     "prefix": "!",
+    "leagueToken": "league-api-token",
     "github": "https://github.com/Cornayy/Daehria",
     "channels": ["bot", "example-channel"],
     "presence": {
