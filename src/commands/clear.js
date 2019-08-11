@@ -14,11 +14,14 @@ class Clear extends Command {
     }
 
     /**
-     * Clears the last 100 messages in the channel.
+     * Clears the last 100 messages in the #bot channel.
      * @param {Object} message The message object that triggered the command.
      */
     async run(message) {
         const channel = message.channel;
+
+        if (channel.name != 'bot') return;
+
         let messages = await channel.fetchMessages({ limit: 100 });
         message.channel
             .bulkDelete(messages)
