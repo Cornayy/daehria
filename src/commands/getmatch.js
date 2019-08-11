@@ -56,35 +56,25 @@ class GetMatch extends Command {
                         this.client.user.avatarURL
                     );
 
-                const addParticipants = new Promise((resolve, reject) => {
-                    match.participants.forEach(participant => {
+                Promise.all(
+                    match.participants.map(participant =>
                         fetch(
                             `https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/${
                                 participant.summonerId
                             }?api_key=${this.client.config.leagueToken}`
-                        )
-                            .then(res => res.json())
-                            .then(summoner => {
-                                summoner = summoner[0];
+                        ).then(res => res.json())
+                    )
+                )
+                    .then(participants => {
+                        participants.forEach(summoner => {
+                            summoner = summoner.find(summoner => summoner.queueType === 'RANKED_SOLO_5x5');
 
-                                matchInfo.addField(
-                                    summoner.summonerName,
-                                    `${summoner.tier} ${summoner.leaguePoints}LP`
-                                );
-                            })
-                            .catch(error => {
-                                super.respond(`Something went wrong, could not retrieve summoner stats. ${error}`);
-                            });
-                    });
-
-                    resolve();
-                });
-
-                addParticipants.then(() => {
-                    setTimeout(() => {
+                            matchInfo.addField(summoner.summonerName, `${summoner.tier} ${summoner.leaguePoints}LP`);
+                        });
+                    })
+                    .then(() => {
                         super.respond({ embed: matchInfo });
-                    }, 1000);
-                });
+                    });
             })
             .catch(error => {
                 super.respond(`Something went wrong, please try again. ${error}`);
