@@ -33,6 +33,20 @@ There is a reference to all available "Game Activity Types" at the links section
 
 **NOTE:** Be careful not to leave your bot token online, so always exclude the config.json file from github.
 
+## League of Legends API
+To fully support the !getmatch command, add the following emotes to your Discord server:
+
+* :challenger:
+* :grandmaster:
+* :master:
+* :diamond:
+* :platinum:
+* :gold:
+* :silver:
+* :bronze:
+* :iron:
+* :unranked:
+
 ## Links
 
 [Discord.js](https://discord.js.org)
