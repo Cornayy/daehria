@@ -12,7 +12,10 @@ Discord Bot written for fun in Javascript using discord.js.
 ```json
 {
     "token": "bot-token",
-    "leagueToken": "league-api-token",
+    "league": {
+        "token": "league-api-token",
+        "region": "euw1"
+    },
     "prefix": "!",    
     "github": "https://github.com/Cornayy/Daehria",
     "channels": ["bot", "example-channel"],
@@ -55,4 +58,4 @@ To fully support the !getmatch command, add the following emotes to your Discord
 
 ## TODO
 
-- [ ] Set League region (e.g. !setregion EUW1)
+- [x] Set League region (e.g. !setregion EUW1)
