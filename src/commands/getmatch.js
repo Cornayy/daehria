@@ -27,7 +27,7 @@ class GetMatch extends Command {
 
         const summonerName = args.join('%20');
         const embed = new Discord.RichEmbed()
-            .setTitle(`Match Information: ${summonerName.replace('%20', ' ')}`)
+            .setTitle('Match Information')
             .setDescription(this.help.description)
             .setColor(0x00b405)
             .addBlankField()
@@ -52,11 +52,11 @@ class GetMatch extends Command {
                         );
                     } else {
                         const rank = this.client.emojis.find(emoji => emoji.name === 'unranked');
-                        [summoner] = summonerInfo;
+                        const summoner = summonerInfo.participant;
 
                         embed.addField(
                             summoner.summonerName,
-                            `${rank} Unranked [**op.gg**](https://euw.op.gg/summoner/userName=${summoner.summonerName
+                            `${rank} UNRANKED [**op.gg**](https://euw.op.gg/summoner/userName=${summoner.summonerName
                                 .split(' ')
                                 .join('+')})`
                         );
@@ -67,7 +67,7 @@ class GetMatch extends Command {
                 super.respond(embed);
             })
             .catch(error => {
-                super.respond(`Something went wrong, the summoner might not be in a game.`);
+                super.respond(`Something went wrong, the summoner might not be in a game. ${error}`);
             });
     }
 }

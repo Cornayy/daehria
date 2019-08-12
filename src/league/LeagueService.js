@@ -39,7 +39,13 @@ class LeagueService {
                     `https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/${
                         participant.summonerId
                     }?api_key=${this.apiKey}`
-                ).then(res => Object.assign(res.json(), participant))
+                )
+                    .then(res => res.json())
+                    .then(res => {
+                        res.participant = participant;
+
+                        return res;
+                    })
             )
         );
     }
