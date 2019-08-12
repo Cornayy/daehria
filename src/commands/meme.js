@@ -27,8 +27,8 @@ class Meme extends Command {
             .then(res => res.data.children[random])
             .then(res => res.data)
             .then(res => {
-                const post = new Discord.RichEmbed().setImage(res.url);
-                super.respond(post);
+                const embed = new Discord.RichEmbed().setImage(res.url);
+                super.respond(embed);
             })
             .catch(error => {
                 super.respond(`Something went wrong, please try again. ${error}`);

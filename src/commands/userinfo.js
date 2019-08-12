@@ -23,7 +23,7 @@ class UserInfo extends Command {
         guild
             .fetchMember(message.author)
             .then(author => {
-                const userInfo = new Discord.RichEmbed()
+                const embed = new Discord.RichEmbed()
                     .setTitle('User Information')
                     .setDescription(this.help.description)
                     .setColor(0x00b405)
@@ -36,7 +36,7 @@ class UserInfo extends Command {
                         this.client.user.avatarURL
                     );
 
-                super.respond({ embed: userInfo });
+                super.respond(embed);
             })
             .catch(error => {
                 super.respond(`Something went wrong, please try again.`);
