@@ -10,7 +10,8 @@ class GetMatch extends Command {
     constructor(client) {
         super(client, {
             name: 'getmatch',
-            description: 'Returns the solo/duo rank from the participants in a league game.',
+            description:
+                'Returns the solo/duo rank from the participants in a league game. \n Use a summoner name as argument e.g. !getmatch Airhead',
             category: 'Information',
             aliases: ['getmatch']
         });
@@ -22,6 +23,8 @@ class GetMatch extends Command {
      * @param {Object} message The message object that triggered the command.
      */
     run(message, args) {
+        if (args.length === 0) return;
+
         const summonerName = args.join('%20');
         const embed = new Discord.RichEmbed()
             .setTitle(`Match Information: ${summonerName.replace('%20', ' ')}`)
