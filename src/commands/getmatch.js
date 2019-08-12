@@ -15,7 +15,7 @@ class GetMatch extends Command {
             category: 'Information',
             aliases: ['getmatch']
         });
-        this.leagueService = new LeagueService(this.client.config.leagueToken);
+        this.leagueService = new LeagueService(this.client);
     }
 
     /**

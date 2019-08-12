@@ -2,10 +2,10 @@ const fetch = require('node-fetch');
 
 class LeagueService {
     /**
-     * @param {String} apiKey The Riot API key.
+     * @param {Daehria} client The client used for the bot.
      */
-    constructor(apiKey) {
-        this.apiKey = apiKey;
+    constructor(client) {
+        this.client = client;
     }
 
     /**
@@ -14,7 +14,11 @@ class LeagueService {
      */
     getSummonerByName(summoner) {
         return fetch(
-            `https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summoner}?api_key=${this.apiKey}`
+            `https://${
+                this.client.config.league.region
+            }.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summoner}?api_key=${
+                this.client.config.league.token
+            }`
         ).then(res => res.json());
     }
 
@@ -24,7 +28,11 @@ class LeagueService {
      */
     getGameBySummonerId(id) {
         return fetch(
-            `https://euw1.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/${id}?api_key=${this.apiKey}`
+            `https://${
+                this.client.config.league.region
+            }.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/${id}?api_key=${
+                this.client.config.league.token
+            }`
         ).then(res => res.json());
     }
 
@@ -36,9 +44,9 @@ class LeagueService {
         return Promise.all(
             participants.map(participant =>
                 fetch(
-                    `https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/${
+                    `https://${this.client.config.league.region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${
                         participant.summonerId
-                    }?api_key=${this.apiKey}`
+                    }?api_key=${this.client.config.league.token}`
                 )
                     .then(res => res.json())
                     .then(res => {
