@@ -12,7 +12,7 @@ class Deahria extends Client {
          * The bot's configuration - empty if no file was specified.
          * @type {Object}
          */
-        this.config = options.config ? require(`../../${options.config}`) : {};
+        this.config = options.config ? require(options.config) : {};
         /**
          * A collection of all of the bot's commands.
          * @type {Discord.Collection}
