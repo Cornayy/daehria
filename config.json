@@ -1,0 +1,19 @@
+{
+    "league": {
+        "region": "euw1"
+    },
+    "prefix": "!",
+    "github": "https://github.com/Cornayy/Daehria",
+    "channels": ["bot", "general", "maymays"],
+    "presence": {
+        "game": {
+            "name": "!help for commands",
+            "type": 1,
+            "url": "https://www.twitch.tv/cornayy"
+        }
+    },
+    "paths": {
+        "commands": "./src/commands",
+        "events": "./src/events"
+    }
+}

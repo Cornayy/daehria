@@ -1,5 +1,6 @@
 const Daehria = require('./src/base/Daehria');
 const path = require('path');
+require('dotenv').config();
 
 /*
     Initialize Daehria.

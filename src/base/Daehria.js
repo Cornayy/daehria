@@ -13,6 +13,8 @@ class Deahria extends Client {
          * @type {Object}
          */
         this.config = options.config ? require(options.config) : {};
+        this.config.token = process.env.BOT_TOKEN;
+        this.config.league.token = process.env.LEAGUE_TOKEN;
         /**
          * A collection of all of the bot's commands.
          * @type {Discord.Collection}

@@ -1,6 +1,6 @@
 const Command = require('../base/Command');
 const Discord = require('discord.js');
-const fetch = require('node-fetch');
+const RedditService = require('../services/RedditService');
 
 class Meme extends Command {
     /**
