@@ -5,15 +5,13 @@ Discord Bot written for fun in Javascript using discord.js.
 
 ## Usage
 * Install the node packages.
-* Create a config.json file in the root of the project.
-* Fill it with the following structure.
+* Create a config.json and a .env file in the root of the project.
+* Fill it with the following structures.
 
 ## Config
 ```json
 {
-    "token": "bot-token",
     "league": {
-        "token": "league-api-token",
         "region": "euw1"
     },
     "prefix": "!",    
@@ -32,9 +30,16 @@ Discord Bot written for fun in Javascript using discord.js.
     }
 }
 ```
+## .env
+
+```
+BOT_TOKEN=token
+LEAGUE_TOKEN=token
+```
+
 There is a reference to all available "Game Activity Types" at the links section.
 
-**NOTE:** Be careful not to leave your bot token online, so always exclude the config.json file from github.
+**NOTE:** Be careful not to leave your bot token online, so always exclude the .env file from github.
 
 ## League of Legends API
 To fully support the !getmatch command, add the following emotes to your Discord server:
