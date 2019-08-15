@@ -59,3 +59,4 @@ To fully support the !getmatch command, add the following emotes to your Discord
 ## TODO
 
 - [x] Set League region (e.g. !setregion EUW1)
+- [ ] Convert config.json to .env
