@@ -1,5 +1,5 @@
 const Command = require('../base/Command');
-const LeagueService = require('../league/LeagueService');
+const LeagueService = require('../services/LeagueService');
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
 
@@ -22,7 +22,7 @@ class GetMatch extends Command {
      * Returns the solo/duo rank from the participants in a league game..
      * @param {Object} message The message object that triggered the command.
      */
-    run(message, args) {
+    async run(message, args) {
         if (args.length === 0) return;
 
         const summonerName = args.join('%20');
@@ -33,42 +33,40 @@ class GetMatch extends Command {
             .addBlankField()
             .setFooter(`${this.client.user.username} at ${new Date().toDateString()}`, this.client.user.avatarURL);
 
-        this.leagueService
-            .getGameBySummonerName(summonerName)
-            .then(participants => {
-                participants.forEach(summonerInfo => {
-                    let summoner = summonerInfo.find(summoner => summoner.queueType === 'RANKED_SOLO_5x5');
+        try {
+            const participants = await this.leagueService.getGameBySummonerName(summonerName);
 
-                    if (summoner) {
-                        const rank = this.client.emojis.find(emoji => emoji.name === `${summoner.tier.toLowerCase()}`);
+            await participants.forEach(summonerInfo => {
+                let summoner = summonerInfo.find(summoner => summoner.queueType === 'RANKED_SOLO_5x5');
 
-                        embed.addField(
-                            summoner.summonerName,
-                            `${rank} ${summoner.tier} - ${summoner.rank} ${
-                                summoner.leaguePoints
-                            }LP [**op.gg**](https://euw.op.gg/summoner/userName=${summoner.summonerName
-                                .split(' ')
-                                .join('+')})`
-                        );
-                    } else {
-                        const rank = this.client.emojis.find(emoji => emoji.name === 'unranked');
-                        const summoner = summonerInfo.participant;
+                if (summoner) {
+                    const rank = this.client.emojis.find(emoji => emoji.name === `${summoner.tier.toLowerCase()}`);
 
-                        embed.addField(
-                            summoner.summonerName,
-                            `${rank} UNRANKED [**op.gg**](https://euw.op.gg/summoner/userName=${summoner.summonerName
-                                .split(' ')
-                                .join('+')})`
-                        );
-                    }
-                });
-            })
-            .then(() => {
-                super.respond(embed);
-            })
-            .catch(error => {
-                super.respond(`Something went wrong, the summoner might not be in a game.`);
+                    embed.addField(
+                        summoner.summonerName,
+                        `${rank} ${summoner.tier} - ${summoner.rank} ${
+                            summoner.leaguePoints
+                        }LP [**op.gg**](https://euw.op.gg/summoner/userName=${summoner.summonerName
+                            .split(' ')
+                            .join('+')})`
+                    );
+                } else {
+                    const rank = this.client.emojis.find(emoji => emoji.name === 'unranked');
+                    summoner = summonerInfo.participant;
+
+                    embed.addField(
+                        summoner.summonerName,
+                        `${rank} UNRANKED [**op.gg**](https://euw.op.gg/summoner/userName=${summoner.summonerName
+                            .split(' ')
+                            .join('+')})`
+                    );
+                }
             });
+
+            super.respond(embed);
+        } catch (err) {
+            super.respond(`Something went wrong, the summoner might not be in a game.`);
+        }
     }
 }
 

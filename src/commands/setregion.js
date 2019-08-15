@@ -1,5 +1,5 @@
 const Command = require('../base/Command');
-const regions = require('../resources/enums/regions');
+const regions = require('../enums/regions');
 
 class SetRegion extends Command {
     /**

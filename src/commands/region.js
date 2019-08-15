@@ -18,7 +18,7 @@ class Region extends Command {
      * @param {Object} message The message object that triggered the command.
      */
     run(message) {
-        super.respond(`The current region used for League of Legends: \`${this.client.config.league.region}\``);
+        super.respond(`The current region used for League of Legends: \`${this.client.config.league.region}\`.`);
     }
 }
 

@@ -22,15 +22,14 @@ class Clear extends Command {
 
         if (channel.name != 'bot') return;
 
-        let messages = await channel.fetchMessages({ limit: 100 });
-        message.channel
-            .bulkDelete(messages)
-            .then(messages => {
-                super.respond(`Cleared ${messages.size} message(s).`);
-            })
-            .catch(error => {
-                super.respond('Something went wrong while trying to clear the messages.');
-            });
+        const messages = await channel.fetchMessages({ limit: 100 });
+
+        try {
+            await channel.bulkDelete(messages);
+            super.respond(`Cleared ${messages.size} message(s).`);
+        } catch (err) {
+            super.respond(`Something went wrong while trying to clear the messages. \n Error: ${err}`);
+        }
     }
 }
 
