@@ -24,9 +24,28 @@ class Command {
          * @type {Object}
          */
         this.conf = {
-            aliases: options.aliases || []
+            aliases: options.aliases || [],
+            cooldown: options.cooldown || 1000
         };
+        /**
+         * The command's cooldowns for users.
+         * @type {Set}
+         */
+        this.cooldowns = new Set();
     }
+
+    /**
+     * Puts a user on cooldown.
+     * @param {String} user The ID of the user to put on cooldown.
+     */
+    setCooldown(user) {
+        this.cooldowns.add(user);
+
+        setTimeout(() => {
+            this.cooldowns.delete(user);
+        }, this.conf.cooldown);
+    }
+
     /**
      * Sets the message object to access information about the message.
      * @param {Object} message

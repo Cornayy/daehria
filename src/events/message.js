@@ -26,6 +26,7 @@ class Message {
 
         cmd.setMessage(message);
         cmd.run(message, args);
+        if (cmd.conf.cooldown > 0) cmd.setCooldown(message.author.id);
     }
 }
 
