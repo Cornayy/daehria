@@ -1,4 +1,5 @@
 const { readdir } = require('fs');
+const _path = require('path');
 
 class ServiceHolder {
     /**
@@ -20,6 +21,7 @@ class ServiceHolder {
             if (err) console.log(err);
 
             files.forEach(serv => {
+                if (serv === _path.basename(__filename)) return;
                 const service = new (require(`../../${path}/${serv}`))(this);
 
                 this.services[serv.slice(0, -3)] = service;
@@ -33,7 +35,7 @@ class ServiceHolder {
      * @return {Object} The service.
      */
     get(service) {
-        return this.services[service];
+        return this.services[service] || null;
     }
 }
 

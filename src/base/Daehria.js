@@ -1,6 +1,6 @@
 const { Client, Collection } = require('discord.js');
 const { readdir } = require('fs');
-const ServiceHolder = require('./ServiceHolder');
+const ServiceHolder = require('../services/ServiceHolder');
 
 /**
  * Represents a Discord client.
