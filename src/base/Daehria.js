@@ -1,5 +1,6 @@
 const { Client, Collection } = require('discord.js');
 const { readdir } = require('fs');
+const ServiceHolder = require('./ServiceHolder');
 
 /**
  * Represents a Discord client.
@@ -25,6 +26,11 @@ class Deahria extends Client {
          * @type {Discord.Collection}
          */
         this.aliases = new Collection();
+        /**
+         * An object that holds all the services of the bot.
+         * @type {ServiceHolder}
+         */
+        this.services = new ServiceHolder(this);
 
         console.log('Daehria is running.');
     }
@@ -33,7 +39,7 @@ class Deahria extends Client {
      * Loads all commands in the directory.
      * @param {String} path The path where the commands are located.
      */
-    initCommands(path) {
+    loadCommands(path) {
         readdir(path, (err, files) => {
             if (err) console.log(err);
 
@@ -45,15 +51,13 @@ class Deahria extends Client {
                 command.conf.aliases.forEach(a => this.aliases.set(a, command.help.name));
             });
         });
-
-        return this;
     }
 
     /**
      * Loads all events in the directory.
      * @param {String} path The path where the events are located.
      */
-    initEvents(path) {
+    loadEvents(path) {
         readdir(path, (err, files) => {
             if (err) console.log(err);
 
@@ -63,8 +67,6 @@ class Deahria extends Client {
                 super.on(evt.split('.')[0], (...args) => event.run(...args));
             });
         });
-
-        return this;
     }
 
     /**

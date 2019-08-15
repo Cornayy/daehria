@@ -1,7 +1,6 @@
 const Command = require('../base/Command');
 const LeagueService = require('../services/LeagueService');
 const Discord = require('discord.js');
-const fetch = require('node-fetch');
 
 class GetMatch extends Command {
     /**
@@ -15,7 +14,7 @@ class GetMatch extends Command {
             category: 'Information',
             aliases: ['getmatch']
         });
-        this.leagueService = new LeagueService(this.client);
+        this.leagueService = this.client.services.get('LeagueService');
     }
 
     /**

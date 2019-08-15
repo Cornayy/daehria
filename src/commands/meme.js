@@ -13,7 +13,7 @@ class Meme extends Command {
             category: 'Fun',
             aliases: ['meme']
         });
-        this.redditService = new RedditService(this.client);
+        this.redditService = this.client.services.get('RedditService');
     }
 
     /**

@@ -6,7 +6,7 @@ require('dotenv').config();
     Initialize Daehria.
 */
 
-const client = new Daehria({ config: __dirname + '/config.json' });
+const client = new Daehria({ config: __dirname + '/config' });
 client.login(client.config.token);
-client.initCommands(client.config.paths.commands);
-client.initEvents(client.config.paths.events);
+client.loadCommands(client.config.paths.commands);
+client.loadEvents(client.config.paths.events);
