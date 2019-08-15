@@ -21,7 +21,7 @@ Discord Bot written for fun in Javascript using discord.js.
         "game": {
             "name": "!help for commands",
             "type": 1, 
-            "url": "https://www.twitch.tv/cornayy"
+            "url": "https://www.twitch.tv/cornay"
         }
     },
     "paths": {
