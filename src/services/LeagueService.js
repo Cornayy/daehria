@@ -13,7 +13,6 @@ class LeagueService {
      * @param {String} summoner The name of the summoner.
      */
     getSummonerByName(summoner) {
-        console.log(this.client);
         return fetch(
             `https://${
                 this.client.config.league.region

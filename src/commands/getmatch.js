@@ -25,12 +25,10 @@ class GetMatch extends Command {
         if (args.length === 0) return;
 
         const summonerName = args.join('%20');
-        const embed = new Discord.RichEmbed()
-            .setTitle('Match Information')
-            .setDescription(this.help.description)
-            .setColor(0x00b405)
-            .addBlankField()
-            .setFooter(`${this.client.user.username} at ${new Date().toDateString()}`, this.client.user.avatarURL);
+        const counter = 0;
+        const currentEmbed = {};
+        const blue = new Discord.RichEmbed().setColor(1127128);
+        const red = new Discord.RichEmbed().setColor(14177041);
 
         try {
             const participants = await this.leagueService.getGameBySummonerName(summonerName);
@@ -41,7 +39,7 @@ class GetMatch extends Command {
                 if (summoner) {
                     const rank = this.client.emojis.find(emoji => emoji.name === `${summoner.tier.toLowerCase()}`);
 
-                    embed.addField(
+                    currentEmbed.addField(
                         summoner.summonerName,
                         `${rank} ${summoner.tier} - ${summoner.rank} ${
                             summoner.leaguePoints
@@ -53,18 +51,22 @@ class GetMatch extends Command {
                     const rank = this.client.emojis.find(emoji => emoji.name === 'unranked');
                     summoner = summonerInfo.participant;
 
-                    embed.addField(
+                    currentEmbed.addField(
                         summoner.summonerName,
                         `${rank} UNRANKED [**op.gg**](https://euw.op.gg/summoner/userName=${summoner.summonerName
                             .split(' ')
                             .join('+')})`
                     );
                 }
+                counter++;
+
+                counter === 5 ? (currentEmbed = red) : (currentEmbed = blue);
             });
 
-            super.respond(embed);
+            super.respond(blue);
+            super.respond(red);
         } catch (err) {
-            super.respond(`Something went wrong, the summoner might not be in a game. ${err}`);
+            super.respond(`Something went wrong, the summoner might not be in a game.`);
         }
     }
 }
