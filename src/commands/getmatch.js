@@ -60,7 +60,7 @@ class GetMatch extends Command {
                 }
                 counter++;
 
-                counter === 5 ? (currentEmbed = red) : (currentEmbed = blue);
+                counter >= 5 ? (currentEmbed = red) : (currentEmbed = blue);
             });
 
             super.respond(blue);
