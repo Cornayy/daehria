@@ -25,13 +25,13 @@ class GetMatch extends Command {
         if (args.length === 0) return;
 
         const summonerName = args.join('%20');
-        const blue = new Discord.RichEmbed().setColor(1127128);
-        const red = new Discord.RichEmbed().setColor(14177041);
-        let counter = 0;
-        let currentEmbed = blue;
 
         try {
             const participants = await this.leagueService.getGameBySummonerName(summonerName);
+            const blueTeam = new Discord.RichEmbed().setColor(1127128);
+            const redTeam = new Discord.RichEmbed().setColor(14177041);
+            let currentEmbed = blue;
+            let counter = 0;
 
             await participants.forEach(summonerInfo => {
                 let summoner = summonerInfo.find(summoner => summoner.queueType === 'RANKED_SOLO_5x5');
@@ -60,11 +60,11 @@ class GetMatch extends Command {
                 }
                 counter++;
 
-                counter >= 5 ? (currentEmbed = red) : (currentEmbed = blue);
+                counter >= 5 ? (currentEmbed = redTeam) : (currentEmbed = blueTeam);
             });
 
-            super.respond(blue);
-            super.respond(red);
+            super.respond(blueTeam);
+            super.respond(redTeam);
         } catch (err) {
             super.respond(`Something went wrong, the summoner might not be in a game.`);
         }

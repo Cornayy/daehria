@@ -9,17 +9,22 @@ class LeagueService {
     }
 
     /**
+     * Creates a request.
+     * @param {String} endpoint The endpoint of the query.
+     * @param {String} param The parameter of the query.
+     */
+    createRequest(endpoint, param) {
+        return fetch(
+            `https://${this.client.config.league.region}.${endpoint}${param}?api_key=${this.client.config.league.token}`
+        ).then(res => res.json());
+    }
+
+    /**
      * Gets the summoner by name.
      * @param {String} summoner The name of the summoner.
      */
     getSummonerByName(summoner) {
-        return fetch(
-            `https://${
-                this.client.config.league.region
-            }.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summoner}?api_key=${
-                this.client.config.league.token
-            }`
-        ).then(res => res.json());
+        return this.createRequest('api.riotgames.com/lol/summoner/v4/summoners/by-name/', summoner);
     }
 
     /**
@@ -27,13 +32,7 @@ class LeagueService {
      * @param {String} summoner The id of the summoner.
      */
     getGameBySummonerId(id) {
-        return fetch(
-            `https://${
-                this.client.config.league.region
-            }.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/${id}?api_key=${
-                this.client.config.league.token
-            }`
-        ).then(res => res.json());
+        return this.createRequest('api.riotgames.com/lol/spectator/v4/active-games/by-summoner/', id);
     }
 
     /**
@@ -43,17 +42,13 @@ class LeagueService {
     getAllParticipants(participants) {
         return Promise.all(
             participants.map(participant =>
-                fetch(
-                    `https://${this.client.config.league.region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${
-                        participant.summonerId
-                    }?api_key=${this.client.config.league.token}`
-                )
-                    .then(res => res.json())
-                    .then(res => {
+                this.createRequest('api.riotgames.com/lol/league/v4/entries/by-summoner/', participant.summonerId).then(
+                    res => {
                         res.participant = participant;
 
                         return res;
-                    })
+                    }
+                )
             )
         );
     }
