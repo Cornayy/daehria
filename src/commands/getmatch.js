@@ -34,6 +34,12 @@ class GetMatch extends Command {
 
         try {
             const participants = await this.leagueService.getGameBySummonerName(summonerName);
+            const blue = participants.slice(0, 4);
+            const red = participants.slice(5, 9);
+            console.log('blue');
+            console.log(blue);
+            console.log('red');
+            console.log(red);
 
             await participants.forEach(summonerInfo => {
                 let summoner = summonerInfo.find(summoner => summoner.queueType === 'RANKED_SOLO_5x5');
@@ -64,7 +70,7 @@ class GetMatch extends Command {
 
             super.respond(embed);
         } catch (err) {
-            super.respond(`Something went wrong, the summoner might not be in a game.`);
+            super.respond(`Something went wrong, the summoner might not be in a game. ${err}`);
         }
     }
 }
