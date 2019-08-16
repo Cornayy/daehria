@@ -1,5 +1,6 @@
 const { readdir } = require('fs');
 const _path = require('path');
+const logger = require('../utils/Logger');
 
 class ServiceHolder {
     /**
@@ -18,7 +19,7 @@ class ServiceHolder {
      */
     loadServices(path) {
         readdir(path, (err, files) => {
-            if (err) console.log(err);
+            if (err) logger.error(err);
 
             files.forEach(serv => {
                 if (serv === _path.basename(__filename)) return;

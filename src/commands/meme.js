@@ -1,6 +1,6 @@
 const Command = require('../base/Command');
 const Discord = require('discord.js');
-const RedditService = require('../services/RedditService');
+const logger = require('../utils/Logger');
 
 class Meme extends Command {
     /**
@@ -13,6 +13,7 @@ class Meme extends Command {
             category: 'Fun',
             aliases: ['meme']
         });
+
         this.redditService = this.client.services.get('RedditService');
     }
 
@@ -27,7 +28,8 @@ class Meme extends Command {
 
             super.respond(embed);
         } catch (err) {
-            super.respond(`Something went wrong, please try again. ${error}`);
+            super.respond(`Something went wrong, please try again.`);
+            logger.error(err);
         }
     }
 }

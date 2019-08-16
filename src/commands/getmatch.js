@@ -1,6 +1,6 @@
 const Command = require('../base/Command');
-const LeagueService = require('../services/LeagueService');
 const Discord = require('discord.js');
+const logger = require('../utils/Logger');
 
 class GetMatch extends Command {
     /**
@@ -14,6 +14,7 @@ class GetMatch extends Command {
             category: 'Information',
             aliases: ['getmatch']
         });
+
         this.leagueService = this.client.services.get('LeagueService');
     }
 
@@ -67,6 +68,7 @@ class GetMatch extends Command {
             super.respond(redTeam);
         } catch (err) {
             super.respond(`Something went wrong, the summoner might not be in a game.`);
+            logger.error(err);
         }
     }
 }

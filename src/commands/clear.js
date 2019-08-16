@@ -1,4 +1,5 @@
 const Command = require('../base/Command');
+const logger = require('../utils/Logger');
 
 class Clear extends Command {
     /**
@@ -28,7 +29,8 @@ class Clear extends Command {
             await channel.bulkDelete(messages);
             super.respond(`Cleared ${messages.size} message(s).`);
         } catch (err) {
-            super.respond(`Something went wrong while trying to clear the messages. \n Error: ${err}`);
+            super.respond(`Something went wrong while trying to clear the messages.`);
+            logger.error(err);
         }
     }
 }

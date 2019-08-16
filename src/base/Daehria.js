@@ -1,6 +1,7 @@
 const { Client, Collection } = require('discord.js');
 const { readdir } = require('fs');
 const ServiceHolder = require('../services/ServiceHolder');
+const logger = require('../utils/Logger');
 
 /**
  * Represents a Discord client.
@@ -32,7 +33,7 @@ class Deahria extends Client {
          */
         this.services = new ServiceHolder(this);
 
-        console.log('Daehria is running.');
+        logger.info('Daehria is running.');
     }
 
     /**
@@ -41,7 +42,7 @@ class Deahria extends Client {
      */
     loadCommands(path) {
         readdir(path, (err, files) => {
-            if (err) console.log(err);
+            if (err) logger.error(err);
 
             files.forEach(cmd => {
                 const command = new (require(`../../${path}/${cmd}`))(this);
@@ -59,7 +60,7 @@ class Deahria extends Client {
      */
     loadEvents(path) {
         readdir(path, (err, files) => {
-            if (err) console.log(err);
+            if (err) logger.error(err);
 
             files.forEach(evt => {
                 const event = new (require(`../../${path}/${evt}`))(this);
