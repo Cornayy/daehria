@@ -28,7 +28,7 @@ class GetMatch extends Command {
         const blue = new Discord.RichEmbed().setColor(1127128);
         const red = new Discord.RichEmbed().setColor(14177041);
         const currentEmbed = blue;
-        const counter = 0;
+        let counter = 0;
 
         try {
             const participants = await this.leagueService.getGameBySummonerName(summonerName);
@@ -66,7 +66,7 @@ class GetMatch extends Command {
             super.respond(blue);
             super.respond(red);
         } catch (err) {
-            super.respond(`Something went wrong, the summoner might not be in a game. ${err}`);
+            super.respond(`Something went wrong, the summoner might not be in a game.`);
         }
     }
 }
