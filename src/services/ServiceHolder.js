@@ -22,7 +22,7 @@ class ServiceHolder {
 
             files.forEach(serv => {
                 if (serv === _path.basename(__filename)) return;
-                const service = new (require(`../../${path}/${serv}`))(this);
+                const service = new (require(`../../${path}/${serv}`))(this.client);
 
                 this.services[serv.slice(0, -3)] = service;
             });
