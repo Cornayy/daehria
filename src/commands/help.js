@@ -20,7 +20,7 @@ class Help extends Command {
      */
     run(message) {
         const commands = this.client.commands;
-        const help = new Discord.RichEmbed()
+        const embed = new Discord.RichEmbed()
             .setTitle('Help')
             .setDescription(
                 `${this.help.description} \n The prefix used for commands is: '${this.client.config.prefix}'.`
@@ -30,7 +30,7 @@ class Help extends Command {
             .setFooter(`${this.client.user.username} at ${new Date().toDateString()}`, this.client.user.avatarURL);
 
         commands.forEach(command => {
-            help.addField(command.help.name, command.help.description);
+            embed.addField(command.help.name, command.help.description);
         });
 
         super.respond(help);
