@@ -66,7 +66,7 @@ class GetMatch extends Command {
             super.respond(blue);
             super.respond(red);
         } catch (err) {
-            super.respond(`Something went wrong, the summoner might not be in a game.`);
+            super.respond(`Something went wrong, the summoner might not be in a game. ${err}`);
         }
     }
 }
