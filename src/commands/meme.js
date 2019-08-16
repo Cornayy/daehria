@@ -10,7 +10,7 @@ class Meme extends Command {
         super(client, {
             name: 'meme',
             description: 'Sends a meme from the r/dankmemes subreddit.',
-            category: 'Fun',
+            category: 'Utility',
             aliases: ['meme']
         });
 
