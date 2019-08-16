@@ -25,10 +25,10 @@ class GetMatch extends Command {
         if (args.length === 0) return;
 
         const summonerName = args.join('%20');
-        const counter = 0;
-        const currentEmbed = {};
         const blue = new Discord.RichEmbed().setColor(1127128);
         const red = new Discord.RichEmbed().setColor(14177041);
+        const currentEmbed = blue;
+        const counter = 0;
 
         try {
             const participants = await this.leagueService.getGameBySummonerName(summonerName);
