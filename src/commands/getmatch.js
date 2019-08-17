@@ -26,50 +26,56 @@ class GetMatch extends Command {
         if (args.length === 0) return;
 
         const summonerName = args.join('%20');
+        const blueTeam = new Discord.RichEmbed().setColor(1127128);
+        const redTeam = new Discord.RichEmbed().setColor(14177041);
 
         try {
             const participants = await this.leagueService.getGameBySummonerName(summonerName);
-            const blueTeam = new Discord.RichEmbed().setColor(1127128);
-            const redTeam = new Discord.RichEmbed().setColor(14177041);
-            let currentEmbed = blueTeam;
-            let counter = 0;
+            let currentEmbed = {};
 
-            await participants.forEach(summonerInfo => {
-                let summoner = summonerInfo.find(summoner => summoner.queueType === 'RANKED_SOLO_5x5');
-
-                if (summoner) {
-                    const rank = this.client.emojis.find(emoji => emoji.name === `${summoner.tier.toLowerCase()}`);
-
-                    currentEmbed.addField(
-                        summoner.summonerName,
-                        `${rank} ${summoner.tier} - ${summoner.rank} ${
-                            summoner.leaguePoints
-                        }LP [**op.gg**](https://euw.op.gg/summoner/userName=${summoner.summonerName
-                            .split(' ')
-                            .join('+')})`
-                    );
-                } else {
-                    const rank = this.client.emojis.find(emoji => emoji.name === 'unranked');
-                    summoner = summonerInfo.participant;
-
-                    currentEmbed.addField(
-                        summoner.summonerName,
-                        `${rank} UNRANKED [**op.gg**](https://euw.op.gg/summoner/userName=${summoner.summonerName
-                            .split(' ')
-                            .join('+')})`
-                    );
-                }
-                counter++;
-
+            await participants.forEach((participant, counter) => {
                 counter >= 5 ? (currentEmbed = redTeam) : (currentEmbed = blueTeam);
+
+                let summoner = participant.find(summoner => summoner.queueType === 'RANKED_SOLO_5x5');
+                this.addSummoner(summoner, currentEmbed);
             });
 
-            super.respond(blueTeam);
-            super.respond(redTeam);
+            super.respond(blueTeam).respond(redTeam);
         } catch (err) {
             super.respond(`Something went wrong, the summoner might not be in a game.`);
             logger.error(err);
         }
+    }
+
+    addSummoner(summoner, embed) {
+        if (summoner) {
+            this.addRankedSummoner(summoner, embed);
+        } else {
+            this.addUnrankedSummoner(summoner, embed);
+        }
+    }
+
+    addRankedSummoner(summoner, embed) {
+        const rank = this.client.emojis.find(emoji => emoji.name === `${summoner.tier.toLowerCase()}`);
+
+        embed.addField(
+            summoner.summonerName,
+            `${rank} ${summoner.tier} - ${summoner.rank} ${
+                summoner.leaguePoints
+            }LP [**op.gg**](https://euw.op.gg/summoner/userName=${summoner.summonerName.split(' ').join('+')})`
+        );
+    }
+
+    addUnrankedSummoner(summoner, embed) {
+        const rank = this.client.emojis.find(emoji => emoji.name === 'unranked');
+        summoner = summoner.participant;
+
+        embed.addField(
+            summoner.summonerName,
+            `${rank} UNRANKED [**op.gg**](https://euw.op.gg/summoner/userName=${summoner.summonerName
+                .split(' ')
+                .join('+')})`
+        );
     }
 }
 

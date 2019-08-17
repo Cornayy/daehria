@@ -54,8 +54,15 @@ class Command {
         this.message = message;
     }
 
+    /**
+     * Sends a message to the channel.
+     * Allows chaining.
+     * @param {Object} message
+     */
     respond(message) {
         this.message.channel.send(message);
+
+        return this;
     }
 }
 
