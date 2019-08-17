@@ -9,7 +9,8 @@ class Source extends Command {
             name: 'source',
             description: 'Sends a link to the source code of the bot.',
             category: 'Information',
-            aliases: ['source']
+            aliases: ['source'],
+            args: []
         });
     }
 

@@ -23,7 +23,8 @@ class Help extends Command {
         const embed = new Discord.RichEmbed()
             .setTitle('Help')
             .setDescription(
-                `${this.help.description} \n The prefix used for commands is: '${this.client.config.prefix}'.`
+                `${this.help.description}, the prefix used for commands is: '${this.client.config.prefix}'.
+                You can also check the usage of a command with !usage *command*.`
             )
             .setColor(0x00b405)
             .setFooter(
@@ -31,9 +32,9 @@ class Help extends Command {
                 this.client.user.avatarURL
             );
 
-        commands.forEach(command => {
-            embed.addField(command.help.name, command.help.description);
-        });
+        commands.forEach(command =>
+            embed.addField(command.help.name, `*${command.help.category}*`, true)
+        );
 
         super.respond(embed);
     }

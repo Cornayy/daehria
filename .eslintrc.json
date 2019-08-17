@@ -1,28 +1,28 @@
 {
-  "env": {
-    "commonjs": true,
-    "es6": true
-  },
-  "extends": ["airbnb-base", "plugin:prettier/recommended", "plugin:node/recommended"],
-  "plugins": ["prettier"],
-  "parserOptions": {
-    "ecmaVersion": 2018
-  },
-  "rules": {
-    "prettier/prettier": "error",
-    "no-unused-vars": ["warn", { "args": "none" }],
-    "no-unused-expressions": [
-      "warn",
-      {
-        "allowTernary": true
-      }
-    ],
-    "no-console": "off",
-    "func-names": "off",
-    "object-shorthand": "off",
-    "class-methods-use-this": "off",
-    "import/no-dynamic-require": "off",
-    "global-require": "off",
-    "no-shadow": "off"
-  }
+    "env": {
+        "commonjs": true,
+        "es6": true
+    },
+    "extends": ["airbnb-base", "plugin:prettier/recommended", "plugin:node/recommended"],
+    "plugins": ["prettier"],
+    "parserOptions": {
+        "ecmaVersion": 2018
+    },
+    "rules": {
+        "prettier/prettier": "error",
+        "no-unused-vars": ["warn", { "args": "none" }],
+        "no-unused-expressions": [
+            "warn",
+            {
+                "allowTernary": true
+            }
+        ],
+        "no-console": "off",
+        "func-names": "off",
+        "object-shorthand": "off",
+        "class-methods-use-this": "off",
+        "import/no-dynamic-require": "off",
+        "global-require": "off",
+        "no-shadow": "off"
+    }
 }

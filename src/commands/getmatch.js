@@ -12,7 +12,8 @@ class GetMatch extends Command {
             description:
                 'Returns the solo/duo rank from the participants in a league game. \n Use a summoner name as argument e.g. !getmatch Airhead',
             category: 'Information',
-            aliases: ['getmatch', 'match']
+            aliases: ['getmatch', 'match'],
+            args: ['<summoner>']
         });
 
         this.leagueService = this.client.services.get('LeagueService');

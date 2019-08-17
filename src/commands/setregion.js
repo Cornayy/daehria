@@ -8,10 +8,10 @@ class SetRegion extends Command {
     constructor(client) {
         super(client, {
             name: 'setregion',
-            description:
-                'Sets the region used for riot API calls. \n Use a region as argument e.g. !setregion na1',
+            description: 'Sets the region used for riot API calls.',
             category: 'Utility',
-            aliases: ['setregion']
+            aliases: ['setregion'],
+            args: ['<region>']
         });
     }
 

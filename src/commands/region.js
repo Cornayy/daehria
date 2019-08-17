@@ -9,7 +9,8 @@ class Region extends Command {
             name: 'region',
             description: 'Returns the region used for riot API calls.',
             category: 'Information',
-            aliases: ['region']
+            aliases: ['region'],
+            args: []
         });
     }
 

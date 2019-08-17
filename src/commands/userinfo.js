@@ -11,7 +11,8 @@ class UserInfo extends Command {
             name: 'userinfo',
             description: 'Displays information about the user.',
             category: 'Information',
-            aliases: ['userinfo']
+            aliases: ['userinfo'],
+            args: []
         });
     }
 

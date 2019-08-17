@@ -17,7 +17,8 @@ class Command {
             name: options.name || null,
             description: options.description || 'No information specified.',
             usage: options.usage || '',
-            category: options.category || 'Information'
+            category: options.category || 'Information',
+            args: options.args || []
         };
         /**
          * The command's configuration.
