@@ -64,8 +64,11 @@ class Deahria extends Client {
 
             files.forEach(evt => {
                 const event = new (require(`../../${dir}/${evt}`))(this);
+                const eventName = evt.split('.')[0];
 
-                super.on(evt.split('.')[0].toLowerCase(), (...args) => event.run(...args));
+                super.on(eventName.charAt(0).toLowerCase() + eventName.slice(1), (...args) =>
+                    event.run(...args)
+                );
             });
         });
     }
