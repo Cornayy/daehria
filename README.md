@@ -1,7 +1,5 @@
 # Daehria
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/0007bb1bf7db648279d0/maintainability)](https://codeclimate.com/github/Cornayy/Daehria/maintainability)
-
 ## About
 Discord Bot written for fun in Javascript using discord.js.
 
@@ -18,7 +16,7 @@ Discord Bot written for fun in Javascript using discord.js.
     },
     "prefix": "!",    
     "github": "https://github.com/Cornayy/Daehria",
-    "channels": ["bot", "example-channel"],
+    "channels": ["bot", "example-channel", "member-log"],
     "presence": {
         "game": {
             "name": "!help for commands",
@@ -66,3 +64,4 @@ To fully support the !getmatch command, add the following emotes to your Discord
 ## TODO
 
 - [x] Set League region (e.g. !setregion EUW1)
+- [ ] Create a database and store data, make sure it works on every server.
