@@ -12,16 +12,16 @@ class GuildMemberAdd {
      * Sends a welcome message to a new member.
      * @param {Object} message
      */
-    run(guild, member) {
+    run(member) {
         const channel =
-            guild.channels.find(ch => ch.name === 'member-log') ||
-            guild.channels.find(ch => ch.name === 'general');
+            member.guild.channels.find(ch => ch.name === 'member-log') ||
+            member.guild.channels.find(ch => ch.name === 'general');
 
         if (!channel) return;
 
         const embed = new RichEmbed()
             .setTitle(`Welcome: ${member.user.username}`)
-            .setDescription(`Welcome ${member.user} to **${guild.name}**!`)
+            .setDescription(`Welcome ${member.user} to **${member.guild.name}**!`)
             .setColor(0x00b405)
             .setThumbnail(member.user.avatarURL)
             .setFooter(
