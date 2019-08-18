@@ -1,6 +1,6 @@
 const { RichEmbed } = require('discord.js');
 
-class GuildMemberAdd {
+class GuildMemberRemove {
     /**
      * @param {Daehria} client The client used in the command.
      */
@@ -35,4 +35,4 @@ class GuildMemberAdd {
     }
 }
 
-module.exports = GuildMemberAdd;
+module.exports = GuildMemberRemove;
