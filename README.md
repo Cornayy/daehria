@@ -1,7 +1,5 @@
 # Daehria
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/0007bb1bf7db648279d0/maintainability)](https://codeclimate.com/github/Cornayy/Daehria/maintainability)
-
 ## About
 Discord Bot written for fun in Javascript using discord.js.
 
@@ -18,7 +16,7 @@ Discord Bot written for fun in Javascript using discord.js.
     },
     "prefix": "!",    
     "github": "https://github.com/Cornayy/Daehria",
-    "channels": ["bot", "example-channel"],
+    "channels": ["bot", "example-channel", "member-log"],
     "presence": {
         "game": {
             "name": "!help for commands",
