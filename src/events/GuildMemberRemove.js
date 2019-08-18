@@ -9,7 +9,7 @@ class GuildMemberRemove {
     }
 
     /**
-     * Sets the presence of the bot.
+     * Sends a message to a leaving member.
      * @param {Object} message
      */
     run(guild, member) {
