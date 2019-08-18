@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { RichEmbed } = require('discord.js');
 const Command = require('../base/Command');
 const logger = require('../utils/Logger');
 
@@ -10,7 +10,7 @@ class Meme extends Command {
         super(client, {
             name: 'meme',
             description: 'Sends a meme from the r/dankmemes subreddit.',
-            category: 'Utility',
+            category: 'Fun',
             aliases: ['meme']
         });
 
@@ -24,7 +24,7 @@ class Meme extends Command {
     async run(message) {
         try {
             const post = await this.redditService.getRandomMeme();
-            const embed = new Discord.RichEmbed().setImage(post.url);
+            const embed = new RichEmbed().setImage(post.url);
 
             super.respond(embed);
         } catch (err) {

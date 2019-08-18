@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { RichEmbed } = require('discord.js');
 const Command = require('../base/Command');
 const logger = require('../utils/Logger');
 
@@ -11,8 +11,7 @@ class UserInfo extends Command {
             name: 'userinfo',
             description: 'Displays information about the user.',
             category: 'Information',
-            aliases: ['userinfo'],
-            args: []
+            aliases: ['userinfo']
         });
     }
 
@@ -25,7 +24,7 @@ class UserInfo extends Command {
 
         try {
             const author = await guild.fetchMember(message.author);
-            const embed = new Discord.RichEmbed()
+            const embed = new RichEmbed()
                 .setTitle('User Information')
                 .setDescription(this.help.description)
                 .setColor(0x00b405)

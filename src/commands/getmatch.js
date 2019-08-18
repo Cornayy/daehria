@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { RichEmbed } = require('discord.js');
 const Command = require('../base/Command');
 const logger = require('../utils/Logger');
 
@@ -9,8 +9,7 @@ class GetMatch extends Command {
     constructor(client) {
         super(client, {
             name: 'getmatch',
-            description:
-                'Returns the solo/duo rank from the participants in a league game. \n Use a summoner name as argument e.g. !getmatch Airhead',
+            description: 'Returns the solo/duo rank from the participants in a league game.',
             category: 'Information',
             aliases: ['getmatch', 'match'],
             args: ['<summoner>']
@@ -27,8 +26,8 @@ class GetMatch extends Command {
         if (args.length === 0) return;
 
         const summonerName = args.join('%20');
-        const blueTeam = new Discord.RichEmbed().setColor(1127128);
-        const redTeam = new Discord.RichEmbed().setColor(14177041);
+        const blueTeam = new RichEmbed().setColor(1127128);
+        const redTeam = new RichEmbed().setColor(14177041);
 
         try {
             const participants = await this.leagueService.getGameBySummonerName(summonerName);

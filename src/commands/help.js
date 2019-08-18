@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { RichEmbed } = require('discord.js');
 const Command = require('../base/Command');
 
 class Help extends Command {
@@ -20,7 +20,7 @@ class Help extends Command {
      */
     run(message) {
         const { commands } = this.client;
-        const embed = new Discord.RichEmbed()
+        const embed = new RichEmbed()
             .setTitle('Help')
             .setDescription(
                 `${this.help.description}, the prefix used for commands is: '${this.client.config.prefix}'.

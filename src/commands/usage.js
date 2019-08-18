@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { RichEmbed } = require('discord.js');
 const Command = require('../base/Command');
 
 class Usage extends Command {
@@ -30,7 +30,7 @@ class Usage extends Command {
             return;
         }
 
-        const embed = new Discord.RichEmbed()
+        const embed = new RichEmbed()
             .setTitle(`Usage for: **${cmd.help.name}**`)
             .setDescription(cmd.help.description)
             .setColor(0x00b405)

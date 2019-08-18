@@ -4,7 +4,7 @@
     },
     "prefix": "!",
     "github": "https://github.com/Cornayy/Daehria",
-    "channels": ["bot", "general", "maymays"],
+    "channels": ["bot", "general", "maymays", "member-log"],
     "presence": {
         "game": {
             "name": "!help for commands",
