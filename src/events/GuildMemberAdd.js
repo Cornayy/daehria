@@ -9,7 +9,7 @@ class GuildMemberAdd {
     }
 
     /**
-     * Sets the presence of the bot.
+     * Sends a welcome message to a new member.
      * @param {Object} message
      */
     run(guild, member) {
@@ -21,7 +21,7 @@ class GuildMemberAdd {
 
         const embed = new RichEmbed()
             .setTitle(`Welcome: ${member.user.username}`)
-            .setDescription(`Welcome **${member.user.username}** to **${guild.name}**!`)
+            .setDescription(`Welcome ${member.user} to **${guild.name}**!`)
             .setColor(0x00b405)
             .setThumbnail(member.user.avatarURL)
             .setFooter(
