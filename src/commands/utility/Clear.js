@@ -1,5 +1,5 @@
-const Command = require('../base/Command');
-const logger = require('../utils/Logger');
+const Command = require('../../base/Command');
+const logger = require('../../utils/Logger');
 
 class Clear extends Command {
     /**

@@ -1,5 +1,5 @@
 const { RichEmbed } = require('discord.js');
-const Command = require('../base/Command');
+const Command = require('../../base/Command');
 
 class Usage extends Command {
     /**

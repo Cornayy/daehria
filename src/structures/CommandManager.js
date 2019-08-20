@@ -1,5 +1,6 @@
 const { Collection } = require('discord.js');
-const { readdir } = require('fs');
+const fs = require('fs');
+const path = require('path');
 const logger = require('../utils/Logger');
 
 class CommandManager {
@@ -24,15 +25,19 @@ class CommandManager {
      * @param {String} path The path where the commands are located.
      */
     loadCommands(dir) {
-        readdir(dir, (err, files) => {
+        fs.readdir(dir, (err, files) => {
             if (err) logger.error(err);
 
             files.forEach(cmd => {
-                const command = new (require(`../../${dir}/${cmd}`))(this.client);
+                if (fs.statSync(path.join(dir, cmd)).isDirectory()) {
+                    this.loadCommands(path.join(dir, cmd));
+                } else {
+                    const command = new (require(`../../${dir}/${cmd}`))(this.client);
 
-                this.commands.set(command.help.name, command);
+                    this.commands.set(command.help.name, command);
 
-                command.conf.aliases.forEach(a => this.aliases.set(a, command.help.name));
+                    command.conf.aliases.forEach(a => this.aliases.set(a, command.help.name));
+                }
             });
         });
     }

@@ -1,4 +1,4 @@
-const Command = require('../base/Command');
+const Command = require('../../base/Command');
 
 class Region extends Command {
     /**
@@ -9,8 +9,7 @@ class Region extends Command {
             name: 'region',
             description: 'Returns the region used for riot API calls.',
             category: 'Information',
-            aliases: ['region'],
-            args: []
+            aliases: ['region']
         });
     }
 

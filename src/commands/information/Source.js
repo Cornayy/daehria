@@ -1,4 +1,4 @@
-const Command = require('../base/Command');
+const Command = require('../../base/Command');
 
 class Source extends Command {
     /**
@@ -9,8 +9,7 @@ class Source extends Command {
             name: 'source',
             description: 'Sends a link to the source code of the bot.',
             category: 'Information',
-            aliases: ['source'],
-            args: []
+            aliases: ['source']
         });
     }
 
