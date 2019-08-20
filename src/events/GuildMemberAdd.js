@@ -20,7 +20,7 @@ class GuildMemberAdd {
         if (!channel) return;
 
         const embed = new RichEmbed()
-            .setTitle(`Welcome: ${member.user.username}`)
+            .setTitle('User Joined')
             .setDescription(`Welcome ${member.user} to **${member.guild.name}**!`)
             .setColor(0x00b405)
             .setThumbnail(member.user.avatarURL)

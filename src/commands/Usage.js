@@ -23,7 +23,7 @@ class Usage extends Command {
         if (args.length === 0) return;
 
         const command = args[0];
-        const cmd = this.client.commands.find(cmd => cmd.help.name === command);
+        const cmd = this.client.commandManager.commands.find(cmd => cmd.help.name === command);
 
         if (!cmd) {
             super.respond("I can't find that command, please check the name of the command.");

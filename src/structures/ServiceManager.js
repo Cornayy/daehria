@@ -1,8 +1,7 @@
 const { readdir } = require('fs');
-const path = require('path');
 const logger = require('../utils/Logger');
 
-class ServiceHolder {
+class ServiceManager {
     /**
      * @param {Daehria} client The client that is used.
      */
@@ -22,7 +21,6 @@ class ServiceHolder {
             if (err) logger.error(err);
 
             files.forEach(serv => {
-                if (serv === path.basename(__filename)) return;
                 const service = new (require(`../../${dir}/${serv}`))(this.client);
 
                 this.services[serv.slice(0, -3)] = service;
@@ -40,4 +38,4 @@ class ServiceHolder {
     }
 }
 
-module.exports = ServiceHolder;
+module.exports = ServiceManager;

@@ -19,7 +19,7 @@ class Help extends Command {
      * @param {Object} message The message object that triggered the command.
      */
     run(message) {
-        const { commands } = this.client;
+        const { commands } = this.client.commandManager;
         const embed = new RichEmbed()
             .setTitle('Help')
             .setDescription(

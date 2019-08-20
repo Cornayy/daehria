@@ -20,7 +20,7 @@ class GuildMemberRemove {
         if (!channel) return;
 
         const embed = new RichEmbed()
-            .setTitle(`Bye: ${member.user.username}`)
+            .setTitle('User Left')
             .setDescription(
                 `**${member.user.username}** has left or has been kicked from **${member.guild.name}**!`
             )

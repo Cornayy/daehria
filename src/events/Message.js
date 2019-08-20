@@ -21,8 +21,10 @@ class Message {
         const args = message.content.split(/\s+/g);
         const command = args.shift().slice(this.client.config.prefix.length);
         const cmd =
-            this.client.commands.get(command) ||
-            this.client.commands.get(this.client.aliases.get(command));
+            this.client.commandManager.commands.get(command) ||
+            this.client.commandManager.commands.get(
+                this.client.commandManager.aliases.get(command)
+            );
 
         if (!cmd) return;
 
