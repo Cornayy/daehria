@@ -15,7 +15,7 @@ class Suggest extends Command {
     run(message, args) {
         if (args.length === 0) return;
 
-        const channel = this.client.channels.find(ch => ch.name === 'suggestions');
+        const channel = message.guild.channels.find(ch => ch.name === 'suggestions');
 
         if (!channel) {
             super.respond('There is no #suggestions channel in this server.');
