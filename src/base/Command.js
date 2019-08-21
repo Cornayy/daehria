@@ -26,13 +26,33 @@ class Command {
          */
         this.conf = {
             aliases: options.aliases || [],
-            cooldown: options.cooldown || 1000
+            cooldown: options.cooldown || 1000,
+            requiredPermissions: options.requiredPermissions || ['READ_MESSAGES']
         };
         /**
          * The command's cooldowns for users.
          * @type {Set}
          */
         this.cooldowns = new Set();
+    }
+
+    /**
+     * Checks if a user is able to use the command.
+     * @param {User} user The user that's going to be checked.
+     * @param {Message} message The message object.
+     */
+    isAbleToUse(user, message) {
+        if (
+            !this.client.userHasPermission(user.member, this.conf.requiredPermissions) ||
+            this.cooldowns.has(user.id)
+        ) {
+            message.channel.send(
+                'You do not have the required permissions/are on cooldown for this command.'
+            );
+            message.delete();
+            return false;
+        }
+        return true;
     }
 
     /**

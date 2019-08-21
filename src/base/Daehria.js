@@ -38,6 +38,15 @@ class Deahria extends Client {
     }
 
     /**
+     * Checks if the user has the required permissions.
+     * @param {GuildMember} user The user that's going to be checked.
+     * @param {Array} requiredPermissions The permissions that the user needs to have.
+     */
+    userHasPermission(user, requiredPermissions) {
+        return user.hasPermission(requiredPermissions, false, true, true);
+    }
+
+    /**
      * Logs the client in.
      * @param {String} token The token used to log the client in.
      */

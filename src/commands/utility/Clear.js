@@ -10,7 +10,8 @@ class Clear extends Command {
             name: 'clear',
             description: 'Clears the last 100 messages.',
             category: 'Utility',
-            aliases: ['clear']
+            aliases: ['clear'],
+            requiredPermissions: ['ADMINISTRATOR']
         });
     }
 

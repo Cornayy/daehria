@@ -27,9 +27,13 @@ class Message {
             );
 
         if (!cmd) return;
+        if (!cmd.isAbleToUse(message.author, message)) return;
 
         cmd.setMessage(message);
         cmd.run(message, args);
+
+        message.delete();
+
         if (cmd.conf.cooldown > 0) cmd.setCooldown(message.author.id);
     }
 }
