@@ -8,7 +8,7 @@ const logger = require('../utils/Logger');
  * Represents a Discord client.
  * @extends Discord.Client
  */
-class Deahria extends Client {
+class Daehria extends Client {
     constructor(options) {
         super(options.clientOptions || {});
         /**
@@ -55,4 +55,4 @@ class Deahria extends Client {
     }
 }
 
-module.exports = Deahria;
+module.exports = Daehria;

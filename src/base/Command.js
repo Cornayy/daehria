@@ -43,7 +43,7 @@ class Command {
      */
     isAbleToUse(user, message) {
         if (
-            !this.client.userHasPermission(user.member, this.conf.requiredPermissions) ||
+            !this.client.userHasPermission(message.member, this.conf.requiredPermissions) ||
             this.cooldowns.has(user.id)
         ) {
             message.channel.send(
