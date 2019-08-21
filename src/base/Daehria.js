@@ -41,6 +41,7 @@ class Daehria extends Client {
      * Checks if the user has the required permissions.
      * @param {GuildMember} user The user that's going to be checked.
      * @param {Array} requiredPermissions The permissions that the user needs to have.
+     * @returns {Boolean} Whether the user has the given permissions.
      */
     userHasPermission(user, requiredPermissions) {
         return user.hasPermission(requiredPermissions, false, true, true);

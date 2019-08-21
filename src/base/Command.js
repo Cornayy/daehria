@@ -40,6 +40,7 @@ class Command {
      * Checks if a user is able to use the command.
      * @param {User} user The user that's going to be checked.
      * @param {Message} message The message object.
+     * @returns {Boolean} Whether the user has permission to execute this command.
      */
     isAbleToUse(user, message) {
         if (
@@ -76,8 +77,8 @@ class Command {
 
     /**
      * Sends a message to the channel.
-     * Allows chaining.
      * @param {Object} message
+     * @returns {Command} Returns itself to allow chaining of methods.
      */
     respond(message) {
         this.message.channel.send(message);

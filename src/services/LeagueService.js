@@ -12,6 +12,7 @@ class LeagueService {
      * Creates a request.
      * @param {String} endpoint The endpoint of the query.
      * @param {String} param The parameter of the query.
+     * @returns {Promise} The fetched data.
      */
     createRequest(endpoint, param) {
         return fetch(
@@ -22,6 +23,7 @@ class LeagueService {
     /**
      * Gets the summoner by name.
      * @param {String} summoner The name of the summoner.
+     * @returns {Promise} The fetched data.
      */
     getSummonerByName(summoner) {
         return this.createRequest('api.riotgames.com/lol/summoner/v4/summoners/by-name/', summoner);
@@ -30,6 +32,7 @@ class LeagueService {
     /**
      * Gets the game by summoner id.
      * @param {String} summoner The id of the summoner.
+     * @returns {Promise} The fetched data.
      */
     getGameBySummonerId(id) {
         return this.createRequest(
@@ -41,6 +44,7 @@ class LeagueService {
     /**
      * Gets information about all the participants.
      * @param {Array} participants The participants.
+     * @returns {Promise} The fetched data.
      */
     getAllParticipants(participants) {
         return Promise.all(
@@ -60,6 +64,7 @@ class LeagueService {
     /**
      * Gets the current match of the summoner.
      * @param {String} summoner The name of the summoner.
+     * @returns {Promise} The fetched data.
      */
     getMatchBySummonerName(summonerName) {
         return this.getSummonerByName(summonerName).then(summoner =>
@@ -70,6 +75,7 @@ class LeagueService {
     /**
      * Gets the current game of the summoner.
      * @param {String} summoner The name of the summoner.
+     * @returns {Promise} The fetched data.
      */
     getGameBySummonerName(summonerName) {
         return this.getMatchBySummonerName(summonerName).then(match =>

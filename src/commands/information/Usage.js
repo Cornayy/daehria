@@ -18,6 +18,7 @@ class Usage extends Command {
     /**
      * Explains the usage of the specified command..
      * @param {Object} message The message object that triggered the command.
+     * @param {Array} args The given arguments for the command.
      */
     run(message, args) {
         if (args.length === 0) return;
