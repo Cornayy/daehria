@@ -49,7 +49,6 @@ class Command {
             message.channel.send(
                 'You do not have the required permissions/are on cooldown for this command.'
             );
-            message.delete();
             return false;
         }
         return true;
