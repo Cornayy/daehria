@@ -1,7 +1,7 @@
 const { RichEmbed } = require('discord.js');
 const CATEGORIES = require('../../constants/Categories');
 const ERROR_MESSAGES = require('../../constants/ErrorMessages');
-const Command = require('../../base/Command');
+const Command = require('../../Command');
 
 class Usage extends Command {
     /**

@@ -1,5 +1,5 @@
 const CATEGORIES = require('../../constants/Categories');
-const Command = require('../../base/Command');
+const Command = require('../../Command');
 
 class Region extends Command {
     /**

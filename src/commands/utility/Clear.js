@@ -1,6 +1,6 @@
 const { Permissions: PERMISSIONS } = require('discord.js');
 const CATEGORIES = require('../../constants/Categories');
-const Command = require('../../base/Command');
+const Command = require('../../Command');
 const Logger = require('../../utils/Logger');
 
 class Clear extends Command {

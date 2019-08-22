@@ -1,5 +1,5 @@
 const CATEGORIES = require('../../constants/Categories');
-const Command = require('../../base/Command');
+const Command = require('../../Command');
 const regions = require('../../constants/Regions');
 
 class SetRegion extends Command {
@@ -10,7 +10,7 @@ class SetRegion extends Command {
         super(client, {
             name: 'setregion',
             description: 'Sets the region used for riot API calls.',
-            category: 'Utility',
+            category: CATEGORIES.UTILITY,
             aliases: ['setregion'],
             args: ['<region>']
         });
