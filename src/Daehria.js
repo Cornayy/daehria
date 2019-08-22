@@ -1,8 +1,8 @@
 const { Client } = require('discord.js');
-const ServiceManager = require('../structures/ServiceManager');
-const CommandManager = require('../structures/CommandManager');
-const EventManager = require('../structures/EventManager');
-const Logger = require('../utils/Logger');
+const ServiceManager = require('./structures/ServiceManager');
+const CommandManager = require('./structures/CommandManager');
+const EventManager = require('./structures/EventManager');
+const Logger = require('./utils/Logger');
 
 /**
  * Represents a Discord client.

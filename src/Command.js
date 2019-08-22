@@ -1,6 +1,6 @@
 const { Permissions: PERMISSIONS } = require('discord.js');
-const CATEGORIES = require('../constants/Categories');
-const ERROR_MESSAGES = require('../constants/ErrorMessages');
+const CATEGORIES = require('./constants/Categories');
+const ERROR_MESSAGES = require('./constants/ErrorMessages');
 
 class Command {
     /**
@@ -31,7 +31,7 @@ class Command {
         this.conf = {
             aliases: options.aliases || [],
             cooldown: options.cooldown || 1000,
-            requiredPermissions: options.requiredPermissions || PERMISSIONS.FLAGS
+            requiredPermissions: options.requiredPermissions || PERMISSIONS.FLAGS.READ_MESSAGES
         };
         /**
          * The command's cooldowns for users.

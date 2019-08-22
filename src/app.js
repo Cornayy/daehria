@@ -1,5 +1,5 @@
 const path = require('path');
-const Daehria = require('./src/base/Daehria');
+const Daehria = require('./Daehria');
 
 require('dotenv').config();
 
