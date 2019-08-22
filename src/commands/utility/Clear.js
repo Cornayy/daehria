@@ -1,3 +1,4 @@
+const { Permissions: PERMISSIONS } = require('discord.js');
 const CATEGORIES = require('../../constants/Categories');
 const Command = require('../../base/Command');
 const Logger = require('../../utils/Logger');
@@ -12,7 +13,7 @@ class Clear extends Command {
             description: 'Clears the last 100 messages.',
             category: CATEGORIES.UTILITY,
             aliases: ['clear'],
-            requiredPermissions: ['ADMINISTRATOR']
+            requiredPermissions: PERMISSIONS.FLAGS.ADMINISTRATOR
         });
     }
 
