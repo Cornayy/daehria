@@ -14,7 +14,7 @@ class Suggest extends Command {
     }
 
     /**
-     * Sets the region used for riot API calls.
+     * Handles the suggestion and posts it to the suggestions channel.
      * @param {Object} message The message object that triggered the command.
      * @param {Array} args The given arguments for the command.
      */
