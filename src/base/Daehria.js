@@ -2,7 +2,7 @@ const { Client } = require('discord.js');
 const ServiceManager = require('../structures/ServiceManager');
 const CommandManager = require('../structures/CommandManager');
 const EventManager = require('../structures/EventManager');
-const logger = require('../utils/Logger');
+const Logger = require('../utils/Logger');
 
 /**
  * Represents a Discord client.
@@ -34,7 +34,7 @@ class Daehria extends Client {
          */
         this.commandManager = new CommandManager(this);
 
-        logger.info('Daehria is running.');
+        Logger.info('Daehria is running.');
     }
 
     /**

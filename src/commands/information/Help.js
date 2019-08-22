@@ -1,4 +1,5 @@
 const { RichEmbed } = require('discord.js');
+const CATEGORIES = require('../../constants/Categories');
 const Command = require('../../base/Command');
 
 class Help extends Command {
@@ -9,7 +10,7 @@ class Help extends Command {
         super(client, {
             name: 'help',
             description: 'Displays all the available commands.',
-            category: 'Information',
+            category: CATEGORIES.INFORMATION,
             aliases: ['help']
         });
     }

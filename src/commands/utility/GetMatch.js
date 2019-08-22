@@ -1,6 +1,7 @@
 const { RichEmbed } = require('discord.js');
+const CATEGORIES = require('../../constants/Categories');
 const Command = require('../../base/Command');
-const logger = require('../../utils/Logger');
+const Logger = require('../../utils/Logger');
 
 class GetMatch extends Command {
     /**
@@ -10,7 +11,7 @@ class GetMatch extends Command {
         super(client, {
             name: 'getmatch',
             description: 'Returns the solo/duo rank from the participants in a league game.',
-            category: 'Information',
+            category: CATEGORIES.UTILITY,
             aliases: ['getmatch', 'match'],
             args: ['<summoner>']
         });
@@ -46,7 +47,7 @@ class GetMatch extends Command {
             super.respond(blueTeam).respond(redTeam);
         } catch (err) {
             super.respond(`Something went wrong, the summoner might not be in a game.`);
-            logger.error(err);
+            Logger.error(err);
         }
     }
 

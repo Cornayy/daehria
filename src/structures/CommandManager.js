@@ -1,7 +1,7 @@
-const { Collection } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
-const logger = require('../utils/Logger');
+const { Collection } = require('discord.js');
+const Logger = require('../utils/Logger');
 
 class CommandManager {
     constructor(client) {
@@ -26,7 +26,7 @@ class CommandManager {
      */
     loadCommands(dir) {
         fs.readdir(dir, (err, files) => {
-            if (err) logger.error(err);
+            if (err) Logger.error(err);
 
             files.forEach(cmd => {
                 if (fs.statSync(path.join(dir, cmd)).isDirectory()) {

@@ -1,6 +1,7 @@
 const { RichEmbed } = require('discord.js');
+const CATEGORIES = require('../../constants/Categories');
 const Command = require('../../base/Command');
-const logger = require('../../utils/Logger');
+const Logger = require('../../utils/Logger');
 
 class UserInfo extends Command {
     /**
@@ -10,7 +11,7 @@ class UserInfo extends Command {
         super(client, {
             name: 'userinfo',
             description: 'Displays information about the user.',
-            category: 'Information',
+            category: CATEGORIES.INFORMATION,
             aliases: ['userinfo']
         });
     }
@@ -39,7 +40,7 @@ class UserInfo extends Command {
             super.respond(embed);
         } catch (err) {
             super.respond(`Something went wrong, please try again.`);
-            logger.error(err);
+            Logger.error(err);
         }
     }
 }

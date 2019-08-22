@@ -1,5 +1,6 @@
+const CATEGORIES = require('../../constants/Categories');
 const Command = require('../../base/Command');
-const logger = require('../../utils/Logger');
+const Logger = require('../../utils/Logger');
 
 class Clear extends Command {
     /**
@@ -9,7 +10,7 @@ class Clear extends Command {
         super(client, {
             name: 'clear',
             description: 'Clears the last 100 messages.',
-            category: 'Utility',
+            category: CATEGORIES.UTILITY,
             aliases: ['clear'],
             requiredPermissions: ['ADMINISTRATOR']
         });
@@ -32,7 +33,7 @@ class Clear extends Command {
             super.respond(`Cleared ${messages.size} message(s).`);
         } catch (err) {
             super.respond(`Something went wrong while trying to clear the messages.`);
-            logger.error(err);
+            Logger.error(err);
         }
     }
 }

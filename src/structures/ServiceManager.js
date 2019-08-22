@@ -1,5 +1,5 @@
 const { readdir } = require('fs');
-const logger = require('../utils/Logger');
+const Logger = require('../utils/Logger');
 
 class ServiceManager {
     /**
@@ -18,7 +18,7 @@ class ServiceManager {
      */
     loadServices(dir) {
         readdir(dir, (err, files) => {
-            if (err) logger.error(err);
+            if (err) Logger.error(err);
 
             files.forEach(serv => {
                 const service = new (require(`../../${dir}/${serv}`))(this.client);

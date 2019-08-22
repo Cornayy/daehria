@@ -9,9 +9,9 @@ class RedditService {
     }
 
     getRandomMeme() {
-        const random = Math.floor(Math.random() * 100);
+        const random = Math.floor(Math.random() * 50);
 
-        return fetch('https://www.reddit.com/r/dankmemes.json?limit=100')
+        return fetch('https://www.reddit.com/r/dankmemes.json?limit=50')
             .then(res => res.json())
             .then(res => res.data.children[random])
             .then(res => res.data);

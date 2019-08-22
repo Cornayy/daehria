@@ -1,4 +1,6 @@
 const { RichEmbed } = require('discord.js');
+const CATEGORIES = require('../../constants/Categories');
+const ERROR_MESSAGES = require('../../constants/ErrorMessages');
 const Command = require('../../base/Command');
 
 class Usage extends Command {
@@ -9,7 +11,7 @@ class Usage extends Command {
         super(client, {
             name: 'usage',
             description: 'Explains the usage of the specified command.',
-            category: 'Information',
+            category: CATEGORIES.INFORMATION,
             aliases: ['usage'],
             args: ['<command>']
         });
@@ -27,7 +29,7 @@ class Usage extends Command {
         const cmd = this.client.commandManager.commands.find(cmd => cmd.help.name === command);
 
         if (!cmd) {
-            super.respond("I can't find that command, please check the name of the command.");
+            super.respond(ERROR_MESSAGES.COMMAND_NOT_FOUND);
             return;
         }
 

@@ -1,5 +1,5 @@
 const { readdir } = require('fs');
-const logger = require('../utils/Logger');
+const Logger = require('../utils/Logger');
 
 class EventManager {
     constructor(client) {
@@ -14,7 +14,7 @@ class EventManager {
      */
     loadEvents(dir) {
         readdir(dir, (err, files) => {
-            if (err) logger.error(err);
+            if (err) Logger.error(err);
 
             files.forEach(evt => {
                 const event = new (require(`../../${dir}/${evt}`))(this.client);

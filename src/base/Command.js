@@ -1,3 +1,7 @@
+const { Permissions: PERMISSIONS } = require('discord.js');
+const CATEGORIES = require('../constants/Categories');
+const ERROR_MESSAGES = require('../constants/ErrorMessages');
+
 class Command {
     /**
      * @param {Daehria} client The client used in the command.
@@ -17,7 +21,7 @@ class Command {
             name: options.name || null,
             description: options.description || 'No information specified.',
             usage: options.usage || '',
-            category: options.category || 'Information',
+            category: options.category || CATEGORIES.INFORMATION,
             args: options.args || []
         };
         /**
@@ -27,7 +31,7 @@ class Command {
         this.conf = {
             aliases: options.aliases || [],
             cooldown: options.cooldown || 1000,
-            requiredPermissions: options.requiredPermissions || ['READ_MESSAGES']
+            requiredPermissions: options.requiredPermissions || PERMISSIONS.FLAGS
         };
         /**
          * The command's cooldowns for users.
@@ -47,9 +51,7 @@ class Command {
             !this.client.userHasPermission(message.member, this.conf.requiredPermissions) ||
             this.cooldowns.has(user.id)
         ) {
-            message.channel.send(
-                'You do not have the required permissions/are on cooldown for this command.'
-            );
+            message.channel.send(ERROR_MESSAGES.NO_PERMISSION_OR_COOLDOWN);
             return false;
         }
         return true;

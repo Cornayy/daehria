@@ -1,6 +1,7 @@
 const { RichEmbed } = require('discord.js');
+const CATEGORIES = require('../../constants/Categories');
 const Command = require('../../base/Command');
-const logger = require('../../utils/Logger');
+const Logger = require('../../utils/Logger');
 
 class Meme extends Command {
     /**
@@ -10,7 +11,7 @@ class Meme extends Command {
         super(client, {
             name: 'meme',
             description: 'Sends a meme from the r/dankmemes subreddit.',
-            category: 'Fun',
+            category: CATEGORIES.UTILITY,
             aliases: ['meme']
         });
 
@@ -29,7 +30,7 @@ class Meme extends Command {
             super.respond(embed);
         } catch (err) {
             super.respond(`Something went wrong, please try again.`);
-            logger.error(err);
+            Logger.error(err);
         }
     }
 }

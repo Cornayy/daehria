@@ -1,4 +1,5 @@
 const { RichEmbed } = require('discord.js');
+const CATEGORIES = require('../../constants/Categories');
 const Command = require('../../base/Command');
 
 class Suggest extends Command {
@@ -6,7 +7,7 @@ class Suggest extends Command {
         super(client, {
             name: 'suggest',
             description: 'Sends your suggestion to the suggestion channel.',
-            category: 'Utility',
+            category: CATEGORIES.UTILITY,
             aliases: ['clear'],
             args: ['<suggestion>']
         });

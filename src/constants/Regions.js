@@ -1,4 +1,4 @@
-const regions = {
+const REGIONS = {
     EUW: 'euw1',
     NA: 'na1',
     EUN: 'eun1',
@@ -14,4 +14,4 @@ const regions = {
     RU: 'ru'
 };
 
-module.exports = regions;
+module.exports = REGIONS;

@@ -1,3 +1,4 @@
+const CATEGORIES = require('../../constants/Categories');
 const Command = require('../../base/Command');
 
 class Source extends Command {
@@ -8,7 +9,7 @@ class Source extends Command {
         super(client, {
             name: 'source',
             description: 'Sends a link to the source code of the bot.',
-            category: 'Information',
+            category: CATEGORIES.INFORMATION,
             aliases: ['source']
         });
     }
