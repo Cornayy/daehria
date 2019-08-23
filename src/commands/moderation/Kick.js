@@ -38,4 +38,4 @@ class Kick extends Command {
     }
 }
 
-module.exports = Clear;
+module.exports = Kick;
