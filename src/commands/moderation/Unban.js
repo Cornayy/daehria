@@ -24,7 +24,7 @@ class Unban extends Command {
      * @param {Object} message The message object that triggered the command.
      */
     async run(message, args) {
-        const tag = args[0];
+        const tag = args.join(' ');
 
         try {
             const bans = await message.guild.fetchBans();
@@ -33,7 +33,7 @@ class Unban extends Command {
             if (!user) return;
 
             await message.guild.unban(user.id);
-            super.respond(`Succesfully unbanned ${user.tag}`);
+            super.respond(`Succesfully unbanned ${user.tag}.`);
         } catch (err) {
             super.respond(ERROR_MESSAGES.GENERAL);
             Logger.error(err);
