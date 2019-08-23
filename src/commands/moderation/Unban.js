@@ -28,7 +28,7 @@ class Unban extends Command {
 
         try {
             const bans = await message.guild.fetchBans();
-            const user = bans.find(user => user.tag === tag);
+            const user = bans.find(user => `${user.username}#${user.discriminator}` === tag);
 
             if (!user) return;
 
