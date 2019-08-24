@@ -32,6 +32,8 @@ class UserInfo extends Command {
                 .setThumbnail(author.user.avatarURL)
                 .addField('Account Created At', author.user.createdAt.toDateString(), true)
                 .addField('Joined Server At', author.joinedAt.toDateString(), true)
+                .addField('Currently Playing', author.user.presence.game, true)
+                .addField('Status', author.user.presence.status, true)
                 .setFooter(
                     `${this.client.user.username} at ${new Date().toDateString()}`,
                     this.client.user.avatarURL
