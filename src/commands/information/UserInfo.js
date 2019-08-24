@@ -1,5 +1,6 @@
 const { RichEmbed } = require('discord.js');
 const CATEGORIES = require('../../constants/Categories');
+const ERROR_MESSAGES = require('../../constants/ErrorMessages');
 const Command = require('../../Command');
 const Logger = require('../../utils/Logger');
 
@@ -30,16 +31,8 @@ class UserInfo extends Command {
                 .setDescription(this.help.description)
                 .setColor(0x00b405)
                 .setThumbnail(author.user.avatarURL)
-                .addField(
-                    'Account Created At',
-                    `${author.user.createdAt.toDateString()} ${author.user.createdTimestamp}`,
-                    true
-                )
-                .addField(
-                    'Joined Server At',
-                    `${author.joinedAt.toDateString()} ${author.joinedTimestamp}`,
-                    true
-                )
+                .addField('Account Created At', author.user.createdAt.toDateString(), true)
+                .addField('Joined Server At', author.joinedAt.toDateString(), true)
                 .addField('Currently Playing', author.user.presence.game, true)
                 .addField('Status', author.user.presence.status, true)
                 .setFooter(
@@ -49,7 +42,7 @@ class UserInfo extends Command {
 
             super.respond(embed);
         } catch (err) {
-            super.respond(`Something went wrong, please try again.`);
+            super.respond(ERROR_MESSAGES.GENERAL);
             Logger.error(err);
         }
     }

@@ -1,4 +1,5 @@
 const CATEGORIES = require('../../constants/Categories');
+const ERROR_MESSAGES = require('../../constants/ErrorMessages');
 const Command = require('../../Command');
 const regions = require('../../constants/Regions');
 
@@ -33,7 +34,7 @@ class SetRegion extends Command {
                 `The region used for League of Legends is now: \`${this.client.config.league.region}\`.`
             );
         } else {
-            super.respond('This is not a valid region.');
+            super.respond(ERROR_MESSAGES.GENERAL);
         }
     }
 }

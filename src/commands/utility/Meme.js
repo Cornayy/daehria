@@ -1,5 +1,6 @@
 const { RichEmbed } = require('discord.js');
 const CATEGORIES = require('../../constants/Categories');
+const ERROR_MESSAGES = require('../../constants/ErrorMessages');
 const Command = require('../../Command');
 const Logger = require('../../utils/Logger');
 
@@ -29,7 +30,7 @@ class Meme extends Command {
 
             super.respond(embed);
         } catch (err) {
-            super.respond(`Something went wrong, please try again.`);
+            super.respond(ERROR_MESSAGES.GENERAL);
             Logger.error(err);
         }
     }
