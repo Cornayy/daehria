@@ -30,8 +30,16 @@ class UserInfo extends Command {
                 .setDescription(this.help.description)
                 .setColor(0x00b405)
                 .setThumbnail(author.user.avatarURL)
-                .addField('Account Created At', author.user.createdAt.toDateString(), true)
-                .addField('Joined Server At', author.joinedAt.toDateString(), true)
+                .addField(
+                    'Account Created At',
+                    `${author.user.createdAt.toDateString()} ${author.user.createdTimestamp}`,
+                    true
+                )
+                .addField(
+                    'Joined Server At',
+                    `${author.joinedAt.toDateString()} ${author.joinedTimestamp}`,
+                    true
+                )
                 .addField('Currently Playing', author.user.presence.game, true)
                 .addField('Status', author.user.presence.status, true)
                 .setFooter(
