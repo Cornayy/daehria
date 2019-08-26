@@ -24,8 +24,8 @@ class SetRegion extends Command {
     run(message, args) {
         if (args.length === 0) return;
 
-        const region = args[0].toLowerCase();
-        const foundRegion = Object.keys(regions).find(key => regions[key] === region);
+        const [region] = args;
+        const foundRegion = Object.keys(regions).find(key => regions[key] === region.toLowerCase());
 
         if (foundRegion) {
             this.client.config.league.region = regions[foundRegion];

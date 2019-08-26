@@ -25,7 +25,7 @@ class Usage extends Command {
     run(message, args) {
         if (args.length === 0) return;
 
-        const command = args[0];
+        const [command] = args;
         const cmd = this.client.commandManager.commands.find(cmd => cmd.help.name === command);
 
         if (!cmd) {
